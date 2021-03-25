@@ -3,7 +3,8 @@
     use yii\widgets\ActiveForm;
 ?>
 
-<?php 
+<?php
+    echo '<h1>Test</h1>';
     if(!isset($new)){
         echo '<h3>Новость была удалена или скрыта</h3>';
     }else{
