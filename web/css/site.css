@@ -113,3 +113,29 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.container__header{
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.navbar__right{
+    display: flex;
+}
+.navbar__right  *{
+    margin: 0 10px;
+}
+.container__body{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header-link, .header-btn{
+    color: black;
+}
+.header-btn{
+    background: none;
+    border: none;
+}

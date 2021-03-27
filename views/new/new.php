@@ -7,23 +7,12 @@
     if(!isset($new)){
         echo '<h3>Новость была удалена или скрыта</h3>';
     }else{
-        echo '<h1>'.$new['title'].'</h1>';
-        if(!Yii::$app->user->isGuest){
-            if( Yii::$app->user->identity->getRole() == 1){
-                ?>
-                <!-- delete new -->
-                    <?php $form = ActiveForm::begin(); ?>
-                        <?= Html::submitButton('Удалить', ['data-confirm'=>"Подтвердите удаление новости:",'class' => 'btn btn-danger', 'name'=>'del_new','value'=>$new['id']]) ?>
-                    <?php ActiveForm::end(); ?>
-                <!-- --------------------------- -->
-                <?php
-            }
-        }
-        echo '<p>Creator: '.$new['creator'].'</a>';
-        echo '<br>';
-        echo 'Date create: '.$new['date_news'];
-        echo '<hr>';
-        echo '<p class="news_text">'.$new['text'].'</p>';
+        echo '<h1>'.$new['title'].'</h1>'.
+         '<p>Creator: '.$new['creator'].'</a>'.
+         '<br>'.
+         'Date create: '.$new['date_news'].
+        '<hr>'.
+        '<p class="news_text">'.$new['text'].'</p>';
         echo '<h3>Comments:</h3>';
         foreach ($comments as $comment){
             if(Yii::$app->request->post('change_comment')==$comment['id']){
@@ -44,9 +33,9 @@
                 <?php
         
         }else{
-            echo $comment['text'].'<br>';
-            echo 'Date: '.$comment['date'].' ';
-            echo '<p>Creator: '.$comment['creator'].'</a>';
+            echo $comment['text'].'<br>'.
+                'Date: '.$comment['date'].' '.
+                '<p>Creator: '.$comment['creator'].'</a>';
             if(!Yii::$app->user->isGuest){
                 if(Yii::$app->user->identity->getRole() == 1){
                     ?>

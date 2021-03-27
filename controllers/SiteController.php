@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\News;
 use app\models\User;
+use app\models\SignupForm;
 
 class SiteController extends Controller
 {
@@ -53,6 +54,23 @@ class SiteController extends Controller
     {
         $news = News::find()->where(['status'=>1])->all();
         return $this->render('index', compact('news'));
+    }
+
+    public function actionSignup(){
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $model = new SignupForm();
+
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
+            $user = new User();
+            $user->username = $model->username;
+            $user->password = $model->password;
+            if($user->save()){
+                return $this->goHome();
+            }
+        }
+        return $this->render('signup', compact('model'));
     }
 
     public function actionLogin()

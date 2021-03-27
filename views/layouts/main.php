@@ -27,36 +27,34 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
+    <div class="container__header">
+        <div class="navbar__left">
+            <?= Html::a('Главная', ['/'],['class' => 'header-link']) ?>
+        </div>
+        <div class="navbar__right">
+        <?php 
+            if (Yii::$app->user->isGuest){
+                echo Html::a('Регистрация', ['/site/signup'], ['class' => 'header-link']);
+                echo Html::a('Вход', ['/site/login'], ['class' => 'header-link']);
+                
+            }else{
+                if(Yii::$app->user->identity->getRole() === 1){
+                    echo Html::a('Админ-панель', ['/admin'], ['class' => 'header-link']);
+                }
+                echo Html::beginForm(['/site/logout', 'post'])
+                .
+                Html::submitButton(
+                    'Выйти (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'header-btn']
                 )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
+                .
+                Html::endForm();
+            }
+        ?>
+        </div>
+    </div>
 
-    <div class="container">
+    <div class="container__body">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
