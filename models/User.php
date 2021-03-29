@@ -11,6 +11,8 @@ class User extends ActiveRecord  implements IdentityInterface
         return 'user';
     }
 
+
+
     public static function findIdentity($id){
         return self::findOne($id);
     }

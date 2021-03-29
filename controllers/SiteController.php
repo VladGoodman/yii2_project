@@ -51,7 +51,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $news = News::find()->where(['status'=>1])->all();
+        $news = News::find()->joinWith('comments')->where(['news.status'=>1])->all();
         return $this->render('index', compact('news'));
     }
 

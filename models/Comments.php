@@ -14,7 +14,7 @@ class Comments extends ActiveRecord
     public function rules()
     {
         return [
-            [['text',], 'required'],
+            [['text',], 'required', 'message'=>'Поле не заполнено'],
             [['text'], 'string', 'max' => 100, 'min'=>10],
         ];
     }
@@ -22,7 +22,7 @@ class Comments extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'text' => 'Your comment',
+            'text' => 'Ваш комментарий',
         ];
     }
 }

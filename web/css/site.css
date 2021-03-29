@@ -113,3 +113,47 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.link__title{
+    font-size: 30px;
+    text-align: center;
+}
+.new__block{
+    border-bottom: 3px #0f0f0f solid;
+}
+.new__title{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #9d9d9d;
+    margin-bottom: 0;
+}
+.new__date{
+    border-bottom: 1px solid #9d9d9d;
+    padding: 10px 0;
+}
+.new__text{
+    margin: 10px 0;
+}
+.new__comment{
+    text-align: right;
+    margin: 5px 0;
+}
+.new-title{
+    border-bottom: 3px solid #9d9d9d;
+}
+.new-text{
+    padding: 10px 0;
+    border-bottom: 3px solid #9d9d9d;
+}
+.new-comments__title{
+    font-size: 20px;
+}
+.new-comments{
+    border-left: 1px solid #9d9d9d;
+    padding: 10px 0 0 10px ;
+}
+.comment-form{
+    border: 1px solid #9d9d9d;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
