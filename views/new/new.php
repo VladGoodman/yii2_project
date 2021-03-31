@@ -34,6 +34,7 @@
                 .'</h4>';
         }
         foreach ($comments as $comment){
+            echo '<div>';
             if(Yii::$app->request->post('change_comment')==$comment['id']){
                 ?>
                 <?php $form_update_comment_save = ActiveForm::begin(); ?>
@@ -67,10 +68,10 @@
                     }
                 }
             }
+            echo '<hr>';
+            echo '</div>';
+        }
         echo '</div>';
-    }
-        echo '<hr>';
-
 }
 ?>
     
