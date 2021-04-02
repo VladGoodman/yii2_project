@@ -9,7 +9,6 @@ $this->title = 'Новости';
     <h3 class="link__title"><?= Html::encode($this->title) ?></h3>
     <div class="news">
     <?php
-    print_r($news);
         foreach ($news as $new){
             echo '
                     <div class="new__block">
