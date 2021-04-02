@@ -8,6 +8,7 @@ $this->title = 'My Yii Application';
 <div class="site-index">
     <h3>Записи:</h3>
     <div class="news">
+        <h1>Test</h1>
     <?php 
         foreach ($news as $new){
             echo '
