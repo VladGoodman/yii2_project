@@ -56,6 +56,11 @@ class User extends ActiveRecord  implements IdentityInterface
         return $user->username;
     }
 
+    public static function getUserByToken($token){
+        $user = self::findOne(['token'=>$token]);
+        return $user;
+    }
+
     public static function login($login, $password)
     {
         $user = self::findOne(['username'=>$login, 'password'=>$password]);
